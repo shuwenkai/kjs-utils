@@ -45,6 +45,7 @@
     <script src="./pull.js"></script>
     <script src="./customNew.js"></script>
     <script src="./customInstanceof.js"></script>
+    <script src="./clone.js"></script>
 
     <!-- 测试对象相关方法 -->
     <script>
@@ -64,6 +65,31 @@
             this.name = 'aaa'
         }
         console.log('@测试 customInstanceof 方法结果', customInstanceof(objPerson, P1), customInstanceof(objPerson, Person));
+
+        // 测试深拷贝1 
+        let cloneObj = { a:1, b: 'b', c: { name: 'c' }, f: function(){ return 'f'}, g: [1, 2,3] }
+        // cloneObj.d = cloneObj // 循环引用
+        let resultClone = deepClone1(cloneObj)
+
+        resultClone.c.name = 'result'
+        console.log('@测试 deepClone1 方法结果', cloneObj, resultClone);
+
+        // 测试深拷贝2 
+        let cloneObj2 = { a:1, b: 'b', c: { name: 'c' }, f: function(){ return 'f'}, g: [1, 2,3] }
+        // cloneObj2.d = cloneObj2 // 循环引用
+        let resultClone2 = deepClone2(cloneObj2)
+
+        resultClone2.c.name = 'result2'
+        console.log('@测试 deepClone2 方法结果', cloneObj2, resultClone2);
+
+        // 测试深拷贝3 
+        let cloneObj3 = { a:1, b: 'b', c: { name: 'c' }, f: function(){ return 'f'}, g: [1, 2,3] }
+        cloneObj3.d = cloneObj3 // 循环引用
+        let resultClone3 = deepClone3(cloneObj3)
+
+        resultClone3.c.name = 'result3'
+        resultClone3.d = 'result3'
+        console.log('@测试 deepClone3 方法结果', cloneObj3, resultClone3);
 
         console.groupEnd()
     </script>
