@@ -43,6 +43,30 @@
     <script src="./chunk.js"></script>
     <script src="./difference.js"></script>
     <script src="./pull.js"></script>
+    <script src="./customNew.js"></script>
+    <script src="./customInstanceof.js"></script>
+
+    <!-- 测试对象相关方法 -->
+    <script>
+        console.group('测试对象相关方法');
+
+        // 测试newInstance
+
+        function Person(name, age) {
+            this.name = name
+            this.age = age
+            // return {a: 888}
+        }
+        let objPerson = customNew(Person, '张三', 18)
+        console.log('@测试 customNew 方法结果', objPerson);
+
+        function P1(){
+            this.name = 'aaa'
+        }
+        console.log('@测试 customInstanceof 方法结果', customInstanceof(objPerson, P1), customInstanceof(objPerson, Person));
+
+        console.groupEnd()
+    </script>
     <!-- 测试数组相关方法 -->
     <script>
         // 测试 map
