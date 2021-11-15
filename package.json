@@ -1,6 +1,6 @@
 {
   "name": "kjs-utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "前端常用工具函数学习封装",
   "main": "./dist/index.js",
   "directories": {
