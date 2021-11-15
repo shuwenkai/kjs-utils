@@ -22,3 +22,11 @@
 2. 自定义new
 3. 自定义instanceof
 
+### 自定义axios
+1. get请求
+2. post请求
+3. put请求
+4. delete请求
+5. 直接axios()函数方式调用
+
+
