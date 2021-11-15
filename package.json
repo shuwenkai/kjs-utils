@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shuwenkai/wk-utils-fn.git"
+    "url": "git+https://github.com/shuwenkai/kjs-utils.git"
   },
   "keywords": [
     "kjs-utils",
@@ -32,9 +32,9 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/shuwenkai/wk-utils-fn/issues"
+    "url": "https://github.com/shuwenkai/kjs-utils.git/issues"
   },
-  "homepage": "https://github.com/shuwenkai/wk-utils-fn#readme",
+  "homepage": "https://github.com/shuwenkai/kjs-utils.git#readme",
   "dependencies": {
     "webpack": "^5.64.0",
     "webpack-cli": "^4.9.1"
