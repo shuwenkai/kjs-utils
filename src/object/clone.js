@@ -4,7 +4,7 @@
  * @param {Object} target 
  * @return {Object}
  */
-function deepClone1(target) {
+export function deepClone1(target) {
     return JSON.parse(JSON.stringify(target))
 }
 
@@ -13,7 +13,7 @@ function deepClone1(target) {
  * @param {Object} target 
  * @return {Object}
  */
-function deepClone2(target) {
+export function deepClone2(target) {
     if (typeof target === 'object' && target !== null) {
         const result = Array.isArray(target) ? [] : {}
         for (const key in target) {
@@ -34,7 +34,7 @@ function deepClone2(target) {
  * @param {Map} hash 
  * @return {Object}
  */
-function deepClone3(target, hash = new Map()) {
+export function deepClone3(target, hash = new Map()) {
     if (typeof target === 'object' && target !== null) {
         // 判断是否克隆过
         if (hash.get(target)) {
@@ -59,7 +59,7 @@ function deepClone3(target, hash = new Map()) {
  * @param {Map} hash 
  * @return {Object}
  */
-function deepClone4(target, hash = new Map()) {
+export function deepClone4(target, hash = new Map()) {
     if (typeof target === 'object' && target !== null) {
         // 判断是否克隆过
         if (hash.get(target)) {

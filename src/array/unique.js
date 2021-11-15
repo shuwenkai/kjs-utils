@@ -4,7 +4,7 @@
  * @param {Array} array 原数组
  * @return {Array}
  */
-function unique(array) {
+export function unique(array) {
     const result = []
     for (let i = 0; i < array.length; i++) {
         const element = array[i];
@@ -20,7 +20,7 @@ function unique(array) {
  * @param {Array} array 原数组
  * @return {Array}
  */
-function unique2(array) {
+export function unique2(array) {
     let result = []
     let tmp = {}
     for (let i = 0; i < array.length; i++) {
@@ -38,6 +38,6 @@ function unique2(array) {
  * @param {Array} array 原数组
  * @return {Array}
  */
-function unique3(array) {
+export function unique3(array) {
     return Array.from(new Set(array))
 }

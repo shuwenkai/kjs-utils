@@ -5,7 +5,7 @@
  * @param {Number} wait 等待时间(毫秒)
  * @return {Function}
  */
-function throttle(callback, wait) {
+ export function throttle(callback, wait) {
     let start = 0;
     return function (event) {
         let now = Date.now()
@@ -25,7 +25,7 @@ function throttle(callback, wait) {
  * @param {Number} time 等待时间(毫秒)
  * @return {Function}
  */
-function debounce(callback, time) {
+ export function debounce(callback, time) {
     let timeId = null; //定时器
     return function(event) {
         const _this = this;

@@ -4,7 +4,7 @@
  * @param {Array} arr1 
  * @param {*} args 
  */
-function concat(arr1, ...args) {
+export function concat(arr1, ...args) {
     let result = [...arr1]
     args.forEach(item => {
         if(Array.isArray(item)) {

@@ -11,13 +11,16 @@
             padding: 0;
             margin: 0;
             color: #fff;
-        }
-
-        .inputDiv {
             height: 2000px;
             width: 100%;
             background: linear-gradient(#125, #eae);
         }
+
+        /* .inputDiv {
+            height: 2000px;
+            width: 100%;
+            background: linear-gradient(#125, #eae);
+        } */
 
         #input1 {
             margin: 30px 0;
@@ -32,38 +35,122 @@
         <label for="input1">输入框input1:</label>
         <input type="text" id="input1">
     </div>
-    <script src="./call.js"></script>
-    <script src="./apply.js"></script>
-    <script src="./bind.js"></script>
-    <script src="./throttle.js"></script>
-    <script src="./decleares.js"></script>
-    <script src="./cancat.js"></script>
-    <script src="./slice.js"></script>
-    <script src="./flatten.js"></script>
-    <script src="./chunk.js"></script>
-    <script src="./difference.js"></script>
-    <script src="./pull.js"></script>
-    <script src="./customNew.js"></script>
-    <script src="./customInstanceof.js"></script>
-    <script src="./clone.js"></script>
-    <script src="./strings.js"></script>
+
+    <div class="uls">
+        <ul id="items">
+            <li>AAAA</li>
+            <li>BBBB</li>
+            <li>CCCC</li>
+            <li>DDDD</li>
+            <div>DIVDIV</li>
+        </ul>
+    </div>
+    <script src="../dist/index.js"></script>
+    <script>
+        // console.log(wkUtils)
+        const wkUtils = kjsUtils
+    </script>
+    <!-- 测试 自定义axios 相关 -->
+    <script>
+        wkUtils.axios({
+            // 请求方式
+            method: 'post',
+            // 请求地址
+            url: 'https://api.apiopen.top/getJoke',
+            // 地址栏请求参数
+            params: { a: 100, b: 200 },
+            // 请求体参数
+            data: { c: 300, d: 400 }
+        }).then(res => {
+            console.log(res);
+        }).catch(e => {
+            console.log(e);
+        })
+
+        wkUtils.axios.get('https://api.apiopen.top/getJoke', { params: { a: 1, b: 2 } }).then(res => {
+            console.log('@测试axios', res);
+        })
+        wkUtils.axios.post('https://api.apiopen.top/getJoke', { params: { a: 1, b: 2 } }).then(res => {
+            console.log('@测试axios', res);
+        })
+
+    </script>
+    <!-- 测试订阅发布相关 -->
+    <script>
+        console.group("测试订阅发布相关")
+        wkUtils.PubSub.subscribe('pay', data => {
+            console.log('商家接到了订单，准备开始制作', data);
+        })
+
+        const pid = wkUtils.PubSub.subscribe('pay', data => {
+            console.log('骑手接到了订单，前往商家', data);
+        })
+
+        wkUtils.PubSub.subscribe('calcel', data => {
+            console.log('商家接到取消的消息');
+        })
+
+        wkUtils.PubSub.unSubscribe(1, pid)
+        wkUtils.PubSub.unSubscribe(2, 'calcel')
+
+        // 发布
+        wkUtils.PubSub.publish('pay', { title: "午餐鱼香肉丝~", price: 20, address: "香年广场" })
+
+        console.log(wkUtils.PubSub, 'PubSub', pid);
+        console.groupEnd()
+    </script>
+    <!-- 测试事件总线相关 -->
+    <script>
+        console.group("测试事件总线相关")
+
+        wkUtils.eventBus.on('login', data => {
+            console.log(data + '用户已经登录');
+        })
+
+        wkUtils.eventBus.on('login', data => {
+            console.log(data + '登录数据已经写入');
+        })
+
+        wkUtils.eventBus.on('ccc', data => {
+            console.log(data + '登录数据已经写入');
+        })
+
+        console.log(wkUtils.eventBus);
+
+        setTimeout(() => {
+            wkUtils.eventBus.emit('login', '张三')
+        }, 2000);
+        console.groupEnd()
+    </script>
+    <!-- 测试事件委托、冒泡相关 -->
+    <script>
+        console.group("测试事件委托、冒泡相关");
+
+
+        wkUtils.eventDelegation('#items', 'click', function (e) {
+            console.log(this.innerHTML);
+        }, 'li')
+
+
+        console.groupEnd()
+    </script>
     <!-- 测试字符串相关方法 -->
     <script>
         console.group("测试字符串相关方法")
 
         // 字符串反转
         let reverseStr = '测试字符串反转'
-        let reverseRes = reverseString(reverseStr)
+        let reverseRes = wkUtils.reverseString(reverseStr)
         console.log('@测试 reverseString 方法结果', reverseRes);
 
         // 判断回文字符串
         let palindromeStr = 'abc1cba'
-        let palindromeRes = palindrome(palindromeStr)
+        let palindromeRes = wkUtils.palindrome(palindromeStr)
         console.log('@测试 palindrome 方法结果', palindromeRes);
 
         // 判断回文字符串
         let truncateStr = '一二三四五，五四三二一，三三二三三'
-        let truncateRes = truncate(truncateStr, 10)
+        let truncateRes = wkUtils.truncate(truncateStr, 10)
         console.log('@测试 truncate 方法结果', truncateRes);
 
 
@@ -80,18 +167,20 @@
             this.age = age
             // return {a: 888}
         }
-        let objPerson = customNew(Person, '张三', 18)
+        let objPerson = wkUtils.customNew(Person, '张三', 18)
         console.log('@测试 customNew 方法结果', objPerson);
 
         function P1() {
             this.name = 'aaa'
         }
-        console.log('@测试 customInstanceof 方法结果', customInstanceof(objPerson, P1), customInstanceof(objPerson, Person));
+        console.log('@测试 customInstanceof 方法结果',
+            wkUtils.customInstanceof(objPerson, P1),
+            wkUtils.customInstanceof(objPerson, Person));
 
         // 测试深拷贝1 
         let cloneObj = { a: 1, b: 'b', c: { name: 'c' }, f: function () { return 'f' }, g: [1, 2, 3] }
         // cloneObj.d = cloneObj // 循环引用
-        let resultClone = deepClone1(cloneObj)
+        let resultClone = wkUtils.deepClone1(cloneObj)
 
         resultClone.c.name = 'result'
         console.log('@测试 deepClone1 方法结果', cloneObj, resultClone);
@@ -99,7 +188,7 @@
         // 测试深拷贝2 
         let cloneObj2 = { a: 1, b: 'b', c: { name: 'c' }, f: function () { return 'f' }, g: [1, 2, 3] }
         // cloneObj2.d = cloneObj2 // 循环引用
-        let resultClone2 = deepClone2(cloneObj2)
+        let resultClone2 = wkUtils.deepClone2(cloneObj2)
 
         resultClone2.c.name = 'result2'
         console.log('@测试 deepClone2 方法结果', cloneObj2, resultClone2);
@@ -107,7 +196,7 @@
         // 测试深拷贝3 
         let cloneObj3 = { a: 1, b: 'b', c: { name: 'c' }, f: function () { return 'f' }, g: [1, 2, 3] }
         cloneObj3.d = cloneObj3 // 循环引用
-        let resultClone3 = deepClone3(cloneObj3)
+        let resultClone3 = wkUtils.deepClone3(cloneObj3)
 
         resultClone3.c.name = 'result3'
         resultClone3.d = 'result3'
@@ -120,7 +209,7 @@
         // 测试 map
         console.group('测试数组相关方法');
         let arr = [1, 2, 3, 4, 5]
-        let resMap = map(arr, (item, index, array) => {
+        let resMap = wkUtils.map(arr, (item, index, array) => {
             return item * 10
         })
         console.log('@测试map结果', resMap);
@@ -128,70 +217,70 @@
         // 测试 reduce 
         // 原生数组结果
         console.log('@测试reduce结果(内置)', arr.reduce((res, value) => { return res + value }, 0));
-        let resReduce = reduce(arr, (res, value) => {
+        let resReduce = wkUtils.reduce(arr, (res, value) => {
             return res + value
         }, 0)
         console.log('@测试reduce结果(自定义)', resReduce);
 
         // 测试 filter
-        let resFilter = filter(arr, (item, index, arr) => {
+        let resFilter = wkUtils.filter(arr, (item, index, arr) => {
             return item % 2 === 0
         }, 0)
         console.log('@测试filter结果(自定义)', resFilter);
 
         // 测试 find
-        let resFind = find(arr, (item, index, arr) => {
+        let resFind = wkUtils.find(arr, (item, index, arr) => {
             return item > 3
         }, 0)
         console.log('@测试 find 结果(自定义)', resFind);
 
 
         // 测试 every
-        let resEvery = every(arr, (item, index, arr) => {
+        let resEvery = wkUtils.every(arr, (item, index, arr) => {
             return item > 0
         }, 0)
         console.log('@测试 every 结果(自定义)', resEvery);
 
         // 测试 some
-        let resSome = some(arr, (item, index, arr) => {
+        let resSome = wkUtils.some(arr, (item, index, arr) => {
             return item > 0
         }, 0)
         console.log('@测试 some 结果(自定义)', resSome);
 
         // 测试 concat
-        let resConcat = concat(arr, [56, 88], 900, 123)
+        let resConcat = wkUtils.concat(arr, [56, 88], 900, 123)
         console.log('@测试 concat 结果(自定义)', resConcat);
 
         // 测试 slice
         // let resSlice = slice(arr, -2)
-        let resSlice = slice(arr, 3)
+        let resSlice = wkUtils.slice(arr, 3)
         console.log('@测试 slice 结果(自定义)', resSlice);
 
         const arrFlat = [1, 2, [3, 4, [5, 6], 7], 8, [9]];
         // 测试 flatten
-        let resFlatten = flatten(arrFlat)
+        let resFlatten = wkUtils.flatten(arrFlat)
         console.log('@测试 flatten 扁平化结果(自定义)', resFlatten);
         // 测试 flatten2
-        let resFlatten2 = flatten2(arrFlat)
+        let resFlatten2 = wkUtils.flatten2(arrFlat)
         console.log('@测试 flatten2 扁平化结果(自定义)', resFlatten2);
 
         // 测试 chunk
-        let resChunk = chunk(arr, 2)
+        let resChunk = wkUtils.chunk(arr, 2)
         console.log('@测试 chunk 扁平化结果(自定义)', resChunk);
 
         // 测试 difference
         const arr2 = [1, 3, 5]
-        let resDifference = difference(arr, arr2)
+        let resDifference = wkUtils.difference(arr, arr2)
         console.log('@测试 difference 扁平化结果(自定义)', arr, arr2, resDifference);
 
         // 测试 pull
         const arrPull = [1, 3, 5, 3, 5, 7, 9]
-        let resPull = pull(arrPull, 1, 3, 7)
+        let resPull = wkUtils.pull(arrPull, 1, 3, 7)
         console.log('@测试 pull 结果(自定义)', arrPull, resPull);
 
         // 测试 pullAll
         const arrPullAll = [1, 3, 5, 3, 5, 7, 9]
-        let resPullAll = pullAll(arrPullAll, [1, 3, 7])
+        let resPullAll = wkUtils.pullAll(arrPullAll, [1, 3, 7])
         console.log('@测试 pull 结果(自定义)', arrPullAll, resPullAll);
 
 
@@ -203,7 +292,7 @@
 
         let input = document.querySelector("#input1")
 
-        input.addEventListener('keyup', debounce(function (e) {
+        input.addEventListener('keyup', wkUtils.debounce(function (e) {
             console.log(e.keyCode);
         }, 500))
 
@@ -213,7 +302,7 @@
     <script>
         console.group('测试防抖相关输出');
 
-        window.addEventListener('scroll', throttle(function () {
+        window.addEventListener('scroll', wkUtils.throttle(function () {
             console.log(Date.now());
         }, 500))
 
@@ -233,10 +322,10 @@
         }
 
         window.c = 1314
-        console.log(call(add, obj, 10, 20));
-        console.log(apply(add, null, [30, 40]));
+        console.log(wkUtils.call(add, obj, 10, 20));
+        console.log(wkUtils.apply(add, null, [30, 40]));
 
-        let fn = bind(add, null, 30, 40)
+        let fn = wkUtils.bind(add, null, 30, 40)
         console.log(fn(30, 40), '@@');
 
         // let fn = add.bind(obj, 10, 20)

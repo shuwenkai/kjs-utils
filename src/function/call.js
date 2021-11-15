@@ -1,4 +1,4 @@
-function call(Fn, obj, ...args) {
+export function call(Fn, obj, ...args) {
     if(typeof Fn !== 'function') {
         throw new TypeError("不是函数调用")
     }

@@ -5,7 +5,7 @@
  * @param {*} R 
  * @return {Boolean}
  */
-function customInstanceof(L, R) {
+export function customInstanceof(L, R) {
     let LP = L.__proto__
     while (LP) {
         if(LP === R.prototype){

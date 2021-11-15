@@ -5,7 +5,7 @@
  * @param {Number} start 
  * @param {Number} end 
  */
-function slice(array, start = 0, end){
+export function slice(array, start = 0, end){
     let result = []
     if(array.length === 0 || start >= array.length) {
         return []

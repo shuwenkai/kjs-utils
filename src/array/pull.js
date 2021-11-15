@@ -5,7 +5,7 @@
  * @param  {...any} args 
  * @return {Array}
  */
-function pull(array, ...args) {
+export function pull(array, ...args) {
     let result = []
     for (let i = 0; i < array.length; i++) {
         const element = array[i];
@@ -25,6 +25,6 @@ function pull(array, ...args) {
  * @param {Array} array 
  * @param {Array} args 
  */
-function pullAll(array, args) {
+export function pullAll(array, args) {
     return pull(array, ...args)
 }

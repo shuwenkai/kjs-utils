@@ -1,0 +1,42 @@
+{
+  "name": "kjs-utils",
+  "version": "1.0.0",
+  "description": "前端常用工具函数学习封装",
+  "main": "./dist/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shuwenkai/wk-utils-fn.git"
+  },
+  "keywords": [
+    "kjs-utils",
+    "kjs",
+    "swk",
+    "shuwenkai",
+    "atguigu",
+    "utils",
+    "array",
+    "object",
+    "function",
+    "string",
+    "axios",
+    "event-bus",
+    "pub-sub"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shuwenkai/wk-utils-fn/issues"
+  },
+  "homepage": "https://github.com/shuwenkai/wk-utils-fn#readme",
+  "dependencies": {
+    "webpack": "^5.64.0",
+    "webpack-cli": "^4.9.1"
+  }
+}

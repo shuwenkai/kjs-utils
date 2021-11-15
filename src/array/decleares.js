@@ -11,7 +11,7 @@
  * @param {Function} callback 回调函数
  * @return {Array}
  */
-function map(arr, callback) {
+export function map(arr, callback) {
     if(!Array.isArray(arr)) {
         throw new TypeError("not a array, please in array")
     }
@@ -32,7 +32,7 @@ function map(arr, callback) {
  * @param {Number} initValue 初始值
  * @return {Array}
  */
-function reduce(arr, callback, initValue = 0) {
+export function reduce(arr, callback, initValue = 0) {
     let result = initValue;
     for (let i = 0; i < arr.length; i++) {
         const element = arr[i];
@@ -47,7 +47,7 @@ function reduce(arr, callback, initValue = 0) {
  * @param {Function} callback 回调函数
  * @return {Array}
  */
-function filter(arr, callback) {
+export function filter(arr, callback) {
     let result = []
     for (let i = 0; i < arr.length; i++) {
         const element = arr[i];
@@ -65,7 +65,7 @@ function filter(arr, callback) {
  * @param {Function} callback 回调函数
  * @return {*}
  */
-function find(arr, callback) {
+export function find(arr, callback) {
     for (let i = 0; i < arr.length; i++) {
         const element = arr[i];
         if(callback(element, i, arr)) {
@@ -80,7 +80,7 @@ function find(arr, callback) {
  * @param {Function} callback 回调函数
  * @return {Number}
  */
-function findIndex(arr, callback) {
+export function findIndex(arr, callback) {
     for (let i = 0; i < arr.length; i++) {
         const element = arr[i];
         if(callback(element, i, arr)) {
@@ -96,7 +96,7 @@ function findIndex(arr, callback) {
  * @param {Function} callback 
  * @return {Boolean}
  */
-function every(arr, callback) {
+export function every(arr, callback) {
     for (let i = 0; i < arr.length; i++) {
         const element = arr[i];
         if(!callback(element, i, arr)) {
@@ -109,10 +109,10 @@ function every(arr, callback) {
 /**
  * @description 数组是否有元素满足条件
  * @param {Array} arr 
- * @param {Function} callback 
+ * @param {function} callback 
  * @return {Boolean}
  */
-function some(arr, callback) {
+export function some(arr, callback) {
     for (let i = 0; i < arr.length; i++) {
         const element = arr[i];
         if(callback(element, i, arr)) {

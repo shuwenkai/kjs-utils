@@ -5,7 +5,7 @@
  * @param {Number} size 分块大小
  * @return {Array}
  */
-function chunk(array, size = 1) {
+export function chunk(array, size = 1) {
     if(!Array.isArray(array)) {
         throw new TypeError("not a array")
     }

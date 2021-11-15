@@ -5,7 +5,7 @@
  * @param {Number} size 
  * @return {Array}
  */
-function drop(array, size) {
+export function drop(array, size) {
     return array.filter((item,i) => i >= size)
 }
 
@@ -15,6 +15,6 @@ function drop(array, size) {
  * @param {*} size 
  * @return {Array} 
  */
-function dropRight(array, size) {
+export function dropRight(array, size) {
     return array.filter((item,i) => i < array.length - size)
 }

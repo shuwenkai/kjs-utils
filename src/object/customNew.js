@@ -4,7 +4,7 @@
  * @param {Function} fn 
  * @param  {...any} args 
  */
-function customNew(fn, ...args) {
+export function customNew(fn, ...args) {
     // 1. 创建一个新对象
     const obj = {}
     // 2. 修改内部this，指向新对象

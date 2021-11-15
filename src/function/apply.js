@@ -1,5 +1,5 @@
 // apply作用跟call类似，但是函数参数是以数组形式传入，call是以单个参数传入
-function apply(Fn, obj, args) {
+export function apply(Fn, obj, args) {
     if (typeof Fn !== 'function') {
         throw new TypeError("not a function")
     }

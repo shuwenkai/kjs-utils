@@ -4,7 +4,7 @@
  * @param {String} str 
  * @return {String}
  */
-function reverseString(str) {
+export function reverseString(str) {
     // return [...str].reverse().join()
     return str.split('').reverse().join('')
 }
@@ -14,7 +14,7 @@ function reverseString(str) {
  * @param {String} str 
  * @return {Boolean}
  */
-function palindrome(str) {
+export function palindrome(str) {
     return reverseString(str) === str;
 }
 
@@ -24,6 +24,6 @@ function palindrome(str) {
  * @param {String} str
  * @param {Number} size
  */
-function truncate(str, size) {
+export function truncate(str, size) {
     return str.slice(str, size) + '...'
 }
