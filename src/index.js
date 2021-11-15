@@ -31,6 +31,3 @@ export { customNew } from './object/customNew'
 export { PubSub } from './pub-sub/index'
 // 字符串相关
 export { palindrome, reverseString, truncate } from './string/index'
-
-
-/**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@ */

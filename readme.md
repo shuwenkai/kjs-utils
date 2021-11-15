@@ -18,4 +18,7 @@
 1. throttle.js 防抖节流
 
 ### 对象相关api
+1. clone.js 深拷贝，
+2. 自定义new
+3. 自定义instanceof
 
