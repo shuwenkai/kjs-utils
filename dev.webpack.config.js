@@ -1,8 +1,7 @@
 const path = require('path')
-
 module.exports = {
     // 模式
-    mode: 'production',
+    mode: 'development',
     // 入口
     entry: './src/index.js',
     // 出口

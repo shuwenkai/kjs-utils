@@ -1,14 +1,16 @@
 {
   "name": "kjs-utils",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "前端常用工具函数学习封装",
   "main": "./dist/index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build:watch": "webpack --watch"
+    "watch": "webpack --watch --config dev.webpack.config.js",
+    "tsc": "tsc --declaration src/index.ts",
+    "dev": "webpack --config dev.webpack.config.js",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
