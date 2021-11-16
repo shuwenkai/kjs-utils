@@ -1,5 +1,5 @@
 # 常用js函数封装
-
+![](https://img.shields.io/badge/npm-6.14.8-green)      ![](https://img.shields.io/badge/kjs--utils-v1.0-green)
 ### 修改this相关
 
 1. call--call.js

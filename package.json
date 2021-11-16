@@ -6,6 +6,7 @@
   "directories": {
     "test": "test"
   },
+  "types": "./dist/index.d.ts",
   "scripts": {
     "watch": "webpack --watch --config dev.webpack.config.js",
     "tsc": "tsc --declaration src/index.ts",
