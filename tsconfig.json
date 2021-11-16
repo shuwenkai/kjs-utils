@@ -1,0 +1,12 @@
+{
+    "include": [ //放入打包的文件
+        "src/**/*.ts"
+    ], // 忽略的文件
+    "exclude": [
+        "node_modules",
+    ],
+    "compilerOptions": {
+        "declaration": true, // 生成 d.ts 文件.
+        "outDir": "./dist", // 编译后生成的文件目录
+    }
+}

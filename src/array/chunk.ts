@@ -1,0 +1,32 @@
+
+/**
+ * @description 数组分块
+ * @param {Array} array 原数组
+ * @param {Number} size 分块大小
+ * @return {Array}
+ */
+ export function chunk(array: Array<any>, size:number = 1): Array<any> {
+    if(!Array.isArray(array)) {
+        throw new TypeError("not a array")
+    }
+    if(array.length === 0){
+        return []
+    }
+
+    let result = []
+    let tmp = []
+
+    array.forEach(item => {
+        if(tmp.length === 0) {
+            result.push(tmp)
+        }
+
+        tmp.push(item)
+
+        if(tmp.length === size) {
+            tmp = []
+        }
+    })
+
+    return result
+}

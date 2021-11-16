@@ -1,0 +1,9 @@
+## npm的忽略文件
+## 忽略src下文件
+src
+
+.eslintrc.js
+.gitignore
+.babelrc.js
+node_modules
+*.config.js

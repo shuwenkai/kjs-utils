@@ -18,7 +18,7 @@ import { eventBus } from './event-bus/index'
 // eventDelegation, 事件委托
 import { eventDelegation } from './event-bind/index'
 // function相关
-import { apply } from './function/apply.js'
+import { apply } from './function/apply'
 import { bind } from './function/bind'
 import { call } from './function/call'
 import { throttle, debounce } from './function/throttle'
@@ -32,7 +32,7 @@ import { PubSub } from './pub-sub/index'
 // 字符串相关
 import { palindrome, reverseString, truncate } from './string/index'
 
-export { 
+export {
     chunk,
     concat,
     map, reduce, find, findIndex, every, some, filter,
@@ -59,8 +59,7 @@ export {
     customNew,
     PubSub,
     palindrome, reverseString, truncate
- };
-
+};
 
 export default {
     chunk,
@@ -78,7 +77,6 @@ export default {
     unique3,
     slice,
     axios,
-    eventBus,
     eventDelegation,
     apply,
     bind,
@@ -88,5 +86,6 @@ export default {
     customInstanceof,
     customNew,
     PubSub,
+    eventBus,
     palindrome, reverseString, truncate
 }

@@ -1,6 +1,6 @@
 {
   "name": "kjs-utils",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "前端常用工具函数学习封装",
   "main": "./dist/index.js",
   "directories": {
@@ -10,6 +10,7 @@
     "watch": "webpack --watch --config dev.webpack.config.js",
     "tsc": "tsc --declaration src/index.ts",
     "dev": "webpack --config dev.webpack.config.js",
+    "build:ts": "webpack --config ts.webpack.config.js",
     "build": "webpack"
   },
   "repository": {
@@ -38,6 +39,10 @@
   },
   "homepage": "https://github.com/shuwenkai/kjs-utils.git#readme",
   "dependencies": {
+    "clean-webpack-plugin": "^4.0.0",
+    "ts-lint": "^4.5.1",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.4.4",
     "webpack": "^5.64.0",
     "webpack-cli": "^4.9.1"
   }
