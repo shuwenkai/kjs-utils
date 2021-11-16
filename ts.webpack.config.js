@@ -15,7 +15,9 @@ module.exports = {
   // 打包出来的文件
   output: {
     filename: '[name].js',// 生成的fiename需要与package.json中的main一致
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist'),     
+   // 打包后在哪个全局对象访问
+    library: 'kjsUtils',
     libraryTarget: 'umd',
   },
   // loader
