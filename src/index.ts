@@ -31,6 +31,7 @@ import { customNew } from './object/customNew'
 import { PubSub } from './pub-sub/index'
 // 字符串相关
 import { palindrome, reverseString, truncate } from './string/index'
+import { dateFormat } from './date/index'
 
 export {
     chunk,
@@ -58,7 +59,8 @@ export {
     customInstanceof,
     customNew,
     PubSub,
-    palindrome, reverseString, truncate
+    palindrome, reverseString, truncate,
+    dateFormat
 };
 
 export default {
@@ -87,5 +89,6 @@ export default {
     customNew,
     PubSub,
     eventBus,
-    palindrome, reverseString, truncate
+    palindrome, reverseString, truncate,
+    dateFormat
 }

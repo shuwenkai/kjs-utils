@@ -54,7 +54,7 @@ export function axios({ method, url, params, data}) {
  * @param {Object} options 请求参数
  * @return {Promise}
  */
- axios.get = (url, options) => {
+ axios.get = (url: string, options) => {
     return axios(Object.assign(options, { method: 'get', url: url}))
 }
 
@@ -64,7 +64,7 @@ export function axios({ method, url, params, data}) {
  * @param {Object} options 请求参数
  * @return {Promise}
  */
-axios.post = (url, options) => {
+axios.post = (url: string, options) => {
     return axios(Object.assign(options, { method: 'post', url: url}))
 }
 
@@ -75,7 +75,7 @@ axios.post = (url, options) => {
  * @param {Object} options 请求参数
  * @return {Promise}
  */
- axios.put = (url, options) =>  {
+ axios.put = (url: string, options) =>  {
     return axios(Object.assign(options, { method: 'put', url: url}))
 }
 
@@ -85,6 +85,27 @@ axios.post = (url, options) => {
  * @param {Object} options 请求参数
  * @return {Promise}
  */
- axios.delete = (url, options) =>  {
+ axios.delete = (url: string, options) =>  {
     return axios(Object.assign(options, { method: 'delete', url: url}))
+}
+
+
+/**
+ * @description 获取地址栏参数
+ * @param url 需要获取地址的参数
+ */
+axios.getQuery = (url: string) => {
+    const search = url.split('?')[1]
+    if (!search) {
+      return {}
+    }
+    return JSON.parse(
+        '{"' +
+          decodeURIComponent(search)
+            .replace(/"/g, '\\"')
+            .replace(/&/g, '","')
+            .replace(/=/g, '":"')
+            .replace(/\+/g, ' ') +
+          '"}'
+      )
 }

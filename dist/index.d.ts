@@ -19,7 +19,8 @@ import { customInstanceof } from './object/customInstanceof';
 import { customNew } from './object/customNew';
 import { PubSub } from './pub-sub/index';
 import { palindrome, reverseString, truncate } from './string/index';
-export { chunk, concat, map, reduce, find, findIndex, every, some, filter, difference, drop, dropRight, flatten, flatten2, pull, pullAll, unique, unique2, unique3, slice, axios, eventBus, eventDelegation, apply, bind, call, throttle, debounce, deepClone1, deepClone2, deepClone3, deepClone4, customInstanceof, customNew, PubSub, palindrome, reverseString, truncate };
+import { dateFormat } from './date/index';
+export { chunk, concat, map, reduce, find, findIndex, every, some, filter, difference, drop, dropRight, flatten, flatten2, pull, pullAll, unique, unique2, unique3, slice, axios, eventBus, eventDelegation, apply, bind, call, throttle, debounce, deepClone1, deepClone2, deepClone3, deepClone4, customInstanceof, customNew, PubSub, palindrome, reverseString, truncate, dateFormat };
 declare const _default: {
     chunk: typeof chunk;
     concat: typeof concat;
@@ -59,5 +60,6 @@ declare const _default: {
     palindrome: typeof palindrome;
     reverseString: typeof reverseString;
     truncate: typeof truncate;
+    dateFormat: typeof dateFormat;
 };
 export default _default;
